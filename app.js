@@ -16,7 +16,7 @@ window.onload = function () {
 			errors.push(characters);
 		}
 
-		patt = /[\!|\@|\#|\$|\&|\%|\^|\*]/;
+		var patt = /[\!|\@|\#|\$|\&|\%|\^|\*]/;
 		if (!patt.test(firstPassword.value)){
 			var symbol = "Please include a symbol!";
 			errors.push(symbol);

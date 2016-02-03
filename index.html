@@ -49,11 +49,61 @@
 
 
 
+	<div class="event">
+		<label>Choose a type of event, or create your own.
+			<input list="event">
+			<datalist id="event">
+				<option value="Party">
+				<option value="Fundraiser">
+				<option value="Adoption Event">
+				<option value="Educational tour">
+				<option value="Group volunteer session">
+			</datalist>
+		</label>
+
+		<label>Event host
+			<input list="host">
+			<datalist id="host">
+				<option value="San Antonio Pets Alive">
+				<option value="Some other organization">
+				<option value="Me!">
+			</datalist>
+		</label><br>
+	
+		<label>Event Start Time!
+			<input type="datetime-local">
+		</label>
+		<label>Event End Time!
+			<input type="datetime-local">
+		</label>
+
+		<label>Now we need to include some guests... Name a few to start off?
+			
+
+		</label>
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
 
 
 
 
 	<script src="app.js"></script>
+	<script src="node_modules/jquery.inputmask/node_modules//jquery/dist/jquery.js"></script>
+	<script src="node_modules/jquery.inputmask/dist/jquery.inputmask.bundle.js"></script>
+	
 </body>
 
 
