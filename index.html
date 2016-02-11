@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device_width, initial-scale=1">
 	<title>SAPA Events</title>
 	<link rel="stylesheet" href="css/styles.css">
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>﻿
 
 
 </head>
@@ -86,7 +88,11 @@
 		</label>
 
 		<label>Now we need to include some guests... Name a few to start off?
-			
+			<textarea rows="4" cols="100">Enter some guest names here! </textarea>
+		</label>
+
+		<label>
+			<textarea rows="4" cols="100">Any additional info to pass along to guests? This field is optional.</textarea>
 
 		</label>
 
@@ -183,14 +189,37 @@
 			// [END region_geolocation]
 		</script>
 
+
+
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDb_60RPduXbWNsHkah9cMAnx-iYdJYiPw&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
 
 		<label><span class="sr-only">The submit button</span>
     		<input id="event-submit" type="submit" value="submit">
 		</label>
 
-		<div id="storage">
-		</div>
+		<div id="event_display"></div>
+
+
+		<script> 
+			var storage = new Firebase('https://shining-torch-9864.firebaseio.com/'); 
+			$('#event-submit').onclick(function() {
+				var event_type = $('#event_type').val();
+				var host = $('#host').val();
+				var locationField = $('#locationField').val();
+				storage.push({type: event_type, host: host, location: locationField});
+			})
+
+			$('#event_display').html(
+				JSON.stringify(snap.val())
+			);
+
+
+
+
+
+		</script>
+
+
 
 
 	</div>
